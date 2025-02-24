@@ -20,7 +20,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "POST",
 			contentType: "application/json",
-			url: window.location + "customer/save",
+			url: "/customer/save",
 			data: JSON.stringify(formData),
 			dataType: 'json',
 			success: function(result) {

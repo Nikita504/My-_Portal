@@ -16,11 +16,11 @@ $(document).ready(function() {
 			for (param = 0; param < EmpData.length; param++) {
 				var rowData = [];
 				rowData.push("<input type='checkbox' id =' " + param + " '></input>");
-				rowData.push(EmpData[param].employeeId);
+				rowData.push(EmpData[param].id);
 				rowData.push(EmpData[param].firstname);
 				rowData.push(EmpData[param].lastname);
-				rowData.push("<button class='mb-2 btn btn-primary updatebtn' id=" + EmpData[param].employeeId + " type='button' data-toggle='modal' data-target='#myModal'>Update</button>");
-				rowData.push("<button class='mb-2 btn btn-danger deletebtn' id=" + EmpData[param].employeeId + " type='button'>Delete</button>");
+				rowData.push("<button class='mb-2 btn btn-primary updatebtn' id=" + EmpData[param].id + " type='button' data-toggle='modal' data-target='#myModal'>Update</button>");
+				rowData.push("<button class='mb-2 btn btn-danger deletebtn' id=" + EmpData[param].id + " type='button'>Delete</button>");
 				EmpTable.row.add(rowData);
 			}
 			EmpTable.columns.adjust().draw();
@@ -40,7 +40,7 @@ $(document).ready(function() {
 	$('#Umodal').on('click', function() {
 
 		var updatedData = {
-			employeeId: $("#Cid").val(),
+			id: $("#Cid").val(),
 			firstname: $("#Fname").val(),
 			lastname: $("#Lname").val()
 		}
@@ -52,9 +52,11 @@ $(document).ready(function() {
 			dataType: 'json',
 			url: "/customer/update",
 			success: function(result) {
-				if (result == true) {
-					location.reload();
-				}
+				        if (result && result.id != null) { 
+				            location.reload();
+				        } else {
+				            alert("Customer ID is missing. Update failed.");
+				        }
 
 			}
 		});
@@ -65,8 +67,9 @@ $(document).ready(function() {
 
 		if (confirm('Are you sure ?')) {
 			var customer = {
-				employeeId: this.id
+			    id: parseInt(this.id) || null  // Convert to int, set null if undefined
 			}
+			console.log("Deleting customer with ID:", this.id);
 			$.ajax({
 				type: "POST",
 				contentType: "application/json",

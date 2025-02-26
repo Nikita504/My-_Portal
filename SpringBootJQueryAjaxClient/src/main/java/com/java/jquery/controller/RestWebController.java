@@ -1,10 +1,15 @@
 package com.java.jquery.controller;
 
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-import com.java.jquery.model.Customer;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.java.jquery.model.Customer;
 import com.java.jquery.service.CustService;
 

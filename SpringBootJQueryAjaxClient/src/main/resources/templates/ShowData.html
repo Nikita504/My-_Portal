@@ -31,6 +31,7 @@
                             <th>Customer Id</th>
                             <th>Customer Firstname</th>
                             <th>Customer Lastname</th>
+                            <th>Customer Email ID</th>
                             <th>Update Record</th>
                             <th>Delete Record</th>
                         </tr>
@@ -47,32 +48,40 @@
                 </div>
             </div>
         </div>
+
+        <!-- Update Modal -->
         <div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog">
+            <div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Update Customer</h4>
-				</div>
-				<div class="modal-body">
-				
-				<label>Employee Id:</label>   <input type="text" class="form-control" id="Cid"
-						placeholder="Employee id" /> 
-					<label>First name:</label>   <input type="text" class="form-control" id="Fname"
-						placeholder="Enter FirstName" /> 
-					<label>Last name:</label>  <input type="text"
-						class="form-control" id="Lname" placeholder="Enter FirstName" />
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" id="Umodal"
-						data-dismiss="modal">Update and Close</button>
-				</div>
-			</div>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Update Customer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label>Customer Id:</label>   
+                        <input type="text" class="form-control" id="Cid" placeholder="Customer Id" />
 
-		</div>
-	</div>
+                        <label>First name:</label>   
+                        <input type="text" class="form-control" id="Fname" placeholder="Enter First Name" />
+
+                        <label>Last name:</label>  
+                        <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name" />
+
+                        <label>Email:</label>  
+                        <input type="email" class="form-control" id="Email" placeholder="Enter Email" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" id="Umodal" data-dismiss="modal">
+                            Update and Close
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </body>
-</html>  
+</html>

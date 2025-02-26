@@ -7,17 +7,17 @@ $(document).ready(function() {
 		ajaxPost();
 	});
 
-
 	function ajaxPost() {
 
 		// PREPARE FORM DATA
 		var formData = {
 			firstname: $("#firstname").val(),
-			lastname: $("#lastname").val()
+			lastname: $("#lastname").val(),
+			email: $("#email").val()
 		}
 
 		// DO POST
-		$.ajax({
+		$.ajax({		
 			type: "POST",
 			contentType: "application/json",
 			url: "/customer/save",
@@ -27,8 +27,9 @@ $(document).ready(function() {
 				if (result.status == "Done") {
 					$("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
 						"Post Successfully! <br>" +
-						"---> Customer's Info: FirstName = " +
-						result.data.firstname + " ,LastName = " + result.data.lastname + "</p>");
+						"---> Customer's Info: FirstName = " + result.data.firstname + 
+						" , LastName = " + result.data.lastname + 
+						" , Email = " + result.data.email + "</p>");
 				} else {
 					$("#postResultDiv").html("<strong>Error</strong>");
 				}
@@ -42,16 +43,14 @@ $(document).ready(function() {
 
 		// Reset FormData after Posting
 		resetData();
-
 	}
 	
+	$('#showDtli').removeClass("active");
+	$('#homeli').addClass("active");
 
- 
-		$('#showDtli').removeClass("active");
-		$('#homeli').addClass("active");
-	 
 	function resetData() {
 		$("#firstname").val("");
 		$("#lastname").val("");
+		$("#email").val("");
 	}
-})
+});
